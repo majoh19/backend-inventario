@@ -1,6 +1,7 @@
 const Marca = require("../models/marca")
 const { request, response } = require("express")
 
+//crear
 const createMarca = async (req = request, res = response) => {
     try{
         const nombre = req.body.nombre ? req.body.nombre.toUpperCase() : ""
@@ -22,6 +23,7 @@ const createMarca = async (req = request, res = response) => {
     }
 }
 
+//listar
 const getMarcas = async (req = request, res = response) => {
     try {
         const {estado} = req.query
@@ -34,10 +36,12 @@ const getMarcas = async (req = request, res = response) => {
     }
 }
 
+//editar
 const updateMarcaByID = async (req = request, res = response) => {
     try {
       const { id } = req.params
       const data = req.body
+      data.fechaActualizacion = new Date()
       const marca = await Marca.findByIdAndUpdate(id, data, { new: true })
       return res.status(201).json(marca)
     } catch (e) {

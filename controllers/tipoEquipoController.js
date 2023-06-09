@@ -23,7 +23,7 @@ const createTipoEquipo = async (req = request, res = response) => {
     }
 }
 
-//listar todos
+//listar
 const getTipoEquipos = async (req = request, res = response) => {
     try {
         const {estado} = req.query
@@ -36,10 +36,12 @@ const getTipoEquipos = async (req = request, res = response) => {
     }
 }
 
+//editar
 const updateTipoEquipoByID = async (req = request, res = response) => {
     try {
       const { id } = req.params
       const data = req.body
+      data.fechaActualizacion = new Date()
       const tipoEquipo = await TipoEquipo.findByIdAndUpdate(id, data, { new: true })
       return res.status(201).json(tipoEquipo)
     } catch (e) {

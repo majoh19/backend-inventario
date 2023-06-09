@@ -3,7 +3,7 @@ const {createTipoEquipo, getTipoEquipos, updateTipoEquipoByID} = require("../con
 const router = Router()
 
 router.post("/", createTipoEquipo)
-router.put("/:id", updateTipoEquipoByID)
 router.get("/", getTipoEquipos)
+router.put("/:id", updateTipoEquipoByID)
 
 module.exports = router

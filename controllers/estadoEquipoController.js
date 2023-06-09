@@ -11,7 +11,7 @@ const createEstadoEquipo = async (req = request, res = response) => {
         }
         const data = {
             nombre
-        };
+        }
         const estadoEquipo = new EstadoEquipo(data)
         console.log(estadoEquipo)
         await estadoEquipo.save()
@@ -23,7 +23,7 @@ const createEstadoEquipo = async (req = request, res = response) => {
     }
 }
 
-//listar todos
+//listar
 const getEstadoEquipos = async (req = request, res = response) => {
     try {
         const {estado} = req.query
@@ -36,11 +36,12 @@ const getEstadoEquipos = async (req = request, res = response) => {
     }
 }
 
-//actualizar
+//editar
 const updateEstadoEquipoByID = async (req = request, res = response) => {
     try {
       const { id } = req.params
       const data = req.body
+      data.fechaActualizacion = new Date()
       const estadoEquipo = await EstadoEquipo.findByIdAndUpdate(id, data, { new: true })
       return res.status(201).json(estadoEquipo)
     } catch (e) {

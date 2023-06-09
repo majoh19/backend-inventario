@@ -25,7 +25,7 @@ const createUsuario = async (req = request, res = response) => {
     }
 }
 
-//listar todos
+//listar
 const getUsuarios = async (req = request, res = response) => {
     try {
         const {estado} = req.query
@@ -38,10 +38,12 @@ const getUsuarios = async (req = request, res = response) => {
     }
 }
 
+//editar
 const updateUsuarioByID = async (req = request, res = response) => {
     try {
       const { id } = req.params
       const data = req.body
+      data.fechaActualizacion = new Date()
       const usuario = await Usuario.findByIdAndUpdate(id, data, { new: true })
       return res.status(201).json(usuario)
     } catch (e) {

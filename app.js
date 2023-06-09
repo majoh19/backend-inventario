@@ -4,11 +4,7 @@ const cors = require('cors')
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use(cors({
-    origin: 'https://ornate-kataifi-af0fb1.netlify.app',
-    methods: 'GET, POST, PUT, DELETE',
-    allowedHeaders: 'Content-Type, Authorization'
-}))
+app.use(cors({ origin: '*' }))
 
 const tipoEquipo = require('./routes/tipoEquipoRoute')
 app.use('/api/tiposequipos', tipoEquipo)

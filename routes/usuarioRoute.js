@@ -3,7 +3,7 @@ const {createUsuario, getUsuarios, updateUsuarioByID} = require("../controllers/
 const router = Router()
 
 router.post("/", createUsuario)
-router.put("/:id", updateUsuarioByID)
 router.get("/", getUsuarios)
+router.put("/:id", updateUsuarioByID)
 
 module.exports = router

@@ -3,7 +3,7 @@ const {createMarca, getMarcas, updateMarcaByID} = require("../controllers/marcaC
 const router = Router()
 
 router.post("/", createMarca)
-router.put("/:id", updateMarcaByID)
 router.get("/", getMarcas)
+router.put("/:id", updateMarcaByID)
 
 module.exports = router

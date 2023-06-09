@@ -41,7 +41,7 @@ const createInventario = async (req = request, res = response) => {
     }
 }
 
-//listar todos
+//listar
 const getInventarios = async (req = request, res = response) => {
     try {
         const inventariosDB = await Inventario.find()
@@ -67,11 +67,12 @@ const getInventarios = async (req = request, res = response) => {
     }
 }
 
-//actualizar
+//editar
 const updateInventarioByID = async (req = request, res = response) => {
     try{
         const {id} = req.params
         const data = req.body
+        data.fechaActualizacion = new Date()
         const inventario = await Inventario.findByIdAndUpdate(id, data, {new: true})
         return res.status(201).json(inventario)
     }catch(e){
