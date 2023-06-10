@@ -21,4 +21,7 @@ app.use('/api/marcas', marca)
 const inventario = require('./routes/inventarioRoute')
 app.use('/api/inventarios', inventario)
 
+const authenticate = require('./routes/authRoute')
+app.use('/api/auntenticar', authenticate)
+
 module.exports = app

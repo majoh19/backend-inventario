@@ -15,6 +15,15 @@ const UsuarioSchema = Schema({
         default: true,
         required: true
     },
+    contrasena: {
+        type: String,
+        required: true
+    },
+    rol: {
+        type: String,
+        required: true,
+        enum: ['ADMIN', 'DOCENTE']
+    },
     fechaCreacion: {
         type: Date,
         default: new Date()
