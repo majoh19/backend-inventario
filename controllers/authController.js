@@ -7,7 +7,6 @@ const { generarJWT } = require("../helpers/jwt");
 //autenticar
 const authenticateUsuario = async (req = request, res = response) => {
   try {
-    
     //Validar request body
     await Promise.all([
       check("email", "invalid.email").isEmail().run(req),
